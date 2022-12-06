@@ -24,7 +24,7 @@ public class Tests
     }
 
     [Test]
-    public async Task Test1()
+    public async Task Day1Test()
     {
         var testData = """
             1000
@@ -51,5 +51,23 @@ public class Tests
 
         Console.WriteLine(Day1.partA(await _client.GetData(2022, 1)));
         Console.WriteLine(Day1.partB(await _client.GetData(2022, 1)));
+    }
+
+    [Test]
+    public async Task Day2Test()
+    {
+        var testData = """
+            A Y
+            B X
+            C Z
+            B Z
+            """;
+
+        Assert.Multiple(() =>
+        {
+            Assert.AreEqual(24, Day2.partA(testData));
+        });
+        Console.WriteLine(Day2.partA(await _client.GetData(2022, 2)));
+        
     }
 }
