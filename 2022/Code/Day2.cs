@@ -6,12 +6,15 @@ public class Day2
     {
         var lines = data.Split('\n', StringSplitOptions.TrimEntries);
         var dict = new Dictionary<string, int>(){
-            {"A", 1},
-            {"B", 2},
-            {"C", 3},
-            {"X", 1},
-            {"Y", 2},
-            {"Z", 3}
+            {"A X", 4},
+            {"A Y", 8},
+            {"A Z", 3},
+            {"B X", 1},
+            {"B Y", 5},
+            {"B Z", 9},
+            {"C X", 7},
+            {"C Y", 2},
+            {"C Z", 6}
         };
 
         var score = 0;
@@ -20,13 +23,7 @@ public class Day2
             if (string.IsNullOrEmpty(item))
                 continue;
 
-            var chars = item.Split(' ');
-            if (dict[chars[0]] < dict[chars[1]])
-                score += dict[chars[1]] + 6;
-            else if (dict[chars[0]] > dict[chars[1]])
-                score += dict[chars[1]] + 0;
-            else
-                score += dict[chars[1]] + 3;
+            score += dict[item];
 
         }
         return score;
